@@ -8,6 +8,79 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/adminPanel.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Container Styles */
+.admin-section {
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Form Box Styling */
+.form-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.form-box h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+/* Form Elements */
+#snippetForm label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#snippetForm input, 
+#snippetForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Button Styling */
+button {
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #219150;
+}
+
+/* Display Area */
+#displayArea {
+    background: #fff;
+    padding: 15px;
+    border-left: 4px solid #27ae60;
+    min-height: 50px;
+    margin-top: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 30px 0;
+}
+    </style>
 </head>
 <body>
 
@@ -93,19 +166,27 @@
 
     <div id="snippet-section" class="admin-section">
         <h1>Code Snippet Management</h1>
-        <div class="card">
+        
+        <div class="form-box">
             <h2>Add New Snippet</h2>
             <form id="snippetForm">
-                <div class="form-group"><label>Title:</label><input type="text" id="snippetTitle" required placeholder="e.g. Navbar Code"></div>
-                <div class="form-group"><label>Code Snippet:</label><textarea id="snippetCode" required rows="8" placeholder="Paste your code here..."></textarea></div>
-                <button type="submit" class="btn btn-snippet">Publish Snippet</button>
+                <label for="title">Title:</label>
+                <input type="text" id="title" required placeholder="e.g. Navbar Code">
+                
+                <label for="code">Code Snippet:</label>
+                <textarea id="code" required rows="8" placeholder="Paste your code here..."></textarea>
+                
+                <button type="submit">Publish Snippet</button>
             </form>
         </div>
+
+        <hr>
+
         <div class="display-list">
             <h2>Current Snippets</h2>
-            <div id="snippetDisplayArea">Loading snippets...</div>
+            <div id="displayArea">Loading snippets...</div>
         </div>
-    </div>
+</div>
 
     <div id="event-section" class="admin-section">
         <h2>GDG Event Management</h2>
