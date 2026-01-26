@@ -1,0 +1,39 @@
+:root {
+    --google-blue: #4285F4;
+    --google-gray: #5f6368;
+    --bg-light: #f8f9fa;
+}
+
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg-light); color: #202124; margin: 0; padding: 20px; }
+
+.admin-panel, .user-view { 
+    max-width: 1000px;
+     margin: 0 auto; 
+     background: white;
+      padding: 30px; 
+      border-radius: 12px; 
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+       margin-bottom: 40px; }
+
+/* Form Styling */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.date-row { display: flex; gap: 5px; }
+input, select, textarea { padding: 12px; border: 1px solid #dadce0; border-radius: 4px; font-size: 14px; }
+textarea { grid-column: span 2; }
+.admin-section { display: none; }
+        .admin-section.active { display: block; }
+.upload-area { grid-column: span 2; border: 2px dashed #4285F4; padding: 20px; text-align: center; border-radius: 8px; }
+.preview-grid { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.preview-img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; }
+
+/* Event Card Styling */
+.events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.event-card { border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; transition: 0.3s; }
+.event-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.category-badge { color: var(--google-blue); font-weight: bold; font-size: 12px; text-transform: uppercase; }
+.event-title { font-size: 1.25rem; margin: 10px 0; font-weight: 700; }
+.image-gallery { display: flex; gap: 10px; overflow-x: auto; margin: 15px 0; }
+.gallery-img { height: 100px; border-radius: 8px; }
+
+.btn-primary { background: var(--google-blue); color: white; border: none; padding: 12px 24px; border-radius: 4px; cursor: pointer; }
+.btn-secondary { background: white; color: var(--google-gray); border: 1px solid #dadce0; padding: 12px 24px; border-radius: 4px; cursor: pointer; }

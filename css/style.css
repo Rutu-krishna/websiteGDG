@@ -1,0 +1,1575 @@
+/* ================== GLOBAL RESET ================== */
+/* ================== THE 3D TYPOGRAPHY SYSTEM ================== */
+
+:root {
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+    --font-tech: 'Space Grotesk', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    -webkit-font-smoothing: antialiased; /* Makes fonts look sharper on Mac */
+}
+
+h1, h2, h3, .hero-content h1 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -1px;
+    /* This text shadow creates a subtle 3D 'lift' */
+    text-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Hero Section Title - Extra 3D punch */
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #202124 0%, #4285F4 100%);
+    background-clip: var(--font-heading);
+   -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+}
+
+/* Sponsor Names & Navigation */
+.navbar a, .owner-name {
+    font-family: var(--font-tech);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* The Calligraphy Loader - Keeping it unique */
+.calligraphy-loader {
+    font-family: cursive;
+    font-size: 3.5rem;
+   color: #FFE800; /* Matching your new palette */
+    /*text-shadow: 2px 2px 0px #4285F4, 4px 4px 0px #EA4335; /* 3D Retro Chromatic effect */
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    color: #202124;
+    background: transparent; /* Allows .area to show through */
+}
+
+.hero, .vision-mission, .gallery, .events {
+    
+    margin: 20px;
+    border-radius: 20px;
+}
+/* ================== ANIMATED BACKGROUND ================== */
+.area {
+    background: #ffffff;  
+    background: -webkit-linear-gradient(to left, #3d46e7, #d63e45);  
+    width: 100%;
+    height: 100vh;
+    position: fixed; /* Keeps background fixed while scrolling */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Places it behind all content */
+}
+
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    /* Remove general background here */
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+}
+
+/* Red Squares - Google Red (#EA4335) with transparency */
+.circles li.red {
+    background: #EA433566; /* 66 at the end adds roughly 40% opacity */
+}
+
+/* Blue Squares - Google Blue (#4285F4) with transparency */
+.circles li.blue {
+    background: #4285F466;
+}
+
+/* Square Variations (Alternating Red and Blue) */
+
+/* Red Squares */
+.circles li.red:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+.circles li.red:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+.circles li.red:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+.circles li.red:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
+.circles li.red:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
+
+/* Blue Squares */
+.circles li.blue:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+.circles li.blue:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+.circles li.blue:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+.circles li.blue:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+.circles li.blue:nth-child(10) { left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s; }
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%; /* Squares turn into circles as they fade out */
+    }
+}
+/* ================== NAVBAR ================== */
+/* ================== NAVBAR ================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 80px;
+    background: rgba(255, 255, 255, 0.85); /* Semi-transparent for glass effect */
+    backdrop-filter: blur(10px); /* Frosted glass look */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    
+    /* Sticky Positioning */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Logo Animation */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4285F4; /* GDG Blue */
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    color: #EA4335; /* Changes to Red on hover */
+}
+
+/* Nav Links & Hover Effect */
+/* ================== NAV BUTTONS ================== */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #5f6368; /* Standard GDG Gray */
+    font-weight: 500;
+    padding: 8px 24px;
+    
+    /* Cylindrical & Colorless (Ghost) Style */
+    border: 2px solid transparent; /* Keeps layout stable */
+    background-color: transparent; 
+    border-radius: 50px; /* Creates the cylindrical/pill shape */
+    
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+/* Hover Effect: Turn Sky Blue */
+nav a:hover {
+    color: white; /* Contrast against the sky blue background */
+    background-color: #87CEEB; /* Sky Blue hex code */
+    
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 4px 10px rgba(135, 206, 235, 0.4); /* Matching glow */
+}
+
+
+/* ================== HERO SECTION ================== */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 10%;
+    min-height: 90vh;
+    overflow: hidden; /* Prevents scrollbars during typing animation */
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 600px; /* Prevents text from squishing */
+    
+}
+
+.hero-title {
+    font-size: 7rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    color: #5f6368;
+}
+
+.hero-btn {
+    margin-top: 30px;
+    padding: 14px 34px;
+    font-size: 1.1rem;
+    border: none;
+    background: #1a73e8;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 1s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(rem);
+    background-color: #1B8B31;
+}
+
+/* Hero Image */
+.hero-image {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ===== HERO IMAGE BASE ===== */
+.hero-image img {
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    object-fit: contain;
+
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Fade out */
+.hero-fade-out {
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+/* Fade in + zoom */
+.hero-fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ================== HERO ENTRY ANIMATION ================== */
+.hero-title,
+.hero-subtitle,
+.hero-btn,
+.hero-image img {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+}
+
+.hero-animate .hero-title {
+    opacity: 1;
+    transform: translateY(1) scale(1);
+    transition: all 0.8s ease 0.2s;
+}
+
+.hero-animate .hero-subtitle {
+    opacity: 1;
+    transform: translateY(1) scale(1);
+    transition: all 0.8s ease 0.4s;
+}
+
+.hero-animate .hero-btn {
+    opacity: 1;
+    transform: translateY(1) scale(1);
+    transition: all 0.1s ease 0.3s;
+}
+
+.hero-animate .hero-image img {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 0.8s ease 0.8s;
+}
+
+/* ================== HERO IMAGE TRANSITION ================== */
+.hero-zoom {
+    transform: scale(1.08);
+}
+
+.hero-fade-out {
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.hero-fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ================== DYNAMIC FLEX CARDS ================== */
+.vision-mission {
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.vm-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px; 
+    
+    max-width: 1300px; 
+    margin: 60px auto;
+    height: 500px;
+}
+
+.vm-card {
+    position: relative;
+    /* Using cac to ensure they take 35% of the available space minus gap considerations */
+    flex: 0 0 35%; 
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 30px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.vm-text{
+    align-items: flex-start;
+}
+.vm-image-box {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.vm-image-box img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.vm-text h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #4285F4; /* GDG Blue */
+}
+
+.vm-text p {
+    color: #00070f;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* ================== THE HOVER INTERACTION ================== */
+
+/* 1. When the wrapper is hovered, blur all cards slightly */
+.vm-wrapper:hover .vm-card {
+    filter: blur(4px);
+    opacity: 0.5;
+    /*background-color: var(--gdg-yellow);*/
+    transform: scale(0.98);
+}
+
+/* 2. Highlight and Expand the specific hovered card */
+.vm-wrapper .vm-card:hover {
+    flex: 0 0 65%; 
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(-10px); /* Adds a slight lift effect */
+    background: #fcf28b;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.22);
+    border-radius: 7rem;
+    border-color: #FFE800;
+    border-width: 0.5rem;
+}
+.vm-wrapper:hover .vm-card:not(:hover) {
+    flex: 0 0 25%; /* Shrinks slightly more to give room to the main card */
+    filter: blur(6px);
+    opacity: 0.4;
+}
+
+/* Reveal extra emphasis on hover */
+.vm-card:hover .vm-text p {
+    opacity: 1;
+    color: #202124;
+}
+.vm-card:hover .vm-text h2,
+.vm-card:hover .vm-text p {
+    color: #202124; /* Ensuring dark text for high contrast on yellow */
+    opacity: 1;
+}
+
+/* Simple 3D Lift for the image when the card turns yellow */
+.vm-card:hover .vm-image-box img {
+    transform: translateZ(30px) scale(1.1);
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.1));
+    transition: transform 0.5s ease;
+}
+/*-------------who we are--------------*/
+.about_us {
+    margin-left: 12rem;
+    margin-right: 12rem;
+    margin-top: 7rem;
+    padding: 60px 70px 120px; /* Balanced the top padding */
+    background-color: #ffffff;
+    border-radius: 4rem; /* Slightly reduced for a sleeker look */
+    border: 2px solid #b52a18; /* Darker, thinner professional border */
+    transition: all 0.4s ease; /* Smooth, static-to-active transition */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft depth */
+}
+
+/* Professional Hover State */
+.about_us:hover {
+    transform: translateY(-5px); /* Subtle lift effect */
+    border-color: #E1341E; /* Brightens border on hover */
+    box-shadow: 0 20px 40px rgba(225, 52, 30, 0.15); /* Adds a warm glow */
+}
+
+.about_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Increased gap for better readability */
+    align-items: center;
+}
+
+.about_container .text_section {
+    max-width: 50%;
+}
+
+.about_container .text_section p {
+    font-size: 1.1rem;
+    font-weight: 400; /* Standard professional weight */
+    color: #333333; /* Darker grey for better contrast */
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0;
+}
+
+.about_container .image_section {
+    max-width: 45%;
+    display: flex;
+}
+
+.about_container .image_section img {
+    width: 100%;
+    border-radius: 2rem; /* Matches the section aesthetic */
+    object-fit: cover;
+}
+/* Add this to target the title specifically */
+.about_container .text_section h2 {
+    text-align: center;
+    font-size: 3.5rem; /* Large, prominent size */
+    font-weight: 800; /* Extra bold for impact */
+    color: #b52a18; /* Matching the darker border color */
+    margin-bottom: 20px; /* Space between title and paragraph */
+    text-transform: uppercase; /* Optional: makes it look more like a header */
+    letter-spacing: -1px; /* Tighter spacing for a modern look */
+}
+
+/* Ensure your paragraph has breathing room */
+.about_container .text_section p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.8;
+}
+/* ================== HERO ANIMATIONS & COLORS ================== */
+.tech_slider {
+    width: auto; /* Changed from 100% to allow margins to work */
+    overflow: hidden; 
+    padding: 40px 0;
+    margin: 0 12rem; /* Apply the 12rem margin here */
+    background: #ffffff;
+    position: relative;
+}
+
+/* Fades - adjusted to ensure they stay within the margined container */
+.tech_slider::before, .tech_slider::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+.tech_slider::before { left: 0; background: linear-gradient(to right, white, transparent); }
+.tech_slider::after { right: 0; background: linear-gradient(to left, white, transparent); }
+
+.slider_track {
+    display: flex;
+    /* Calculate width based on your actual card count (8 cards currently in your HTML) */
+    width: calc(250px * 8); 
+    animation: scroll 20s linear infinite;
+}
+
+/* Professional Card Design */
+.tech_card {
+    flex-shrink: 0; /* Prevents cards from squishing */
+    width: 300px;
+    height: 500px;
+    margin: 0 25px; /* 200px width + 25px left + 25px right = 250px total space per card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #f3f0f0;
+    border-width: 0.5rem;
+    transition: all 0.3s ease;
+    padding: 20px;
+    height: auto; /* Allow card to grow with the paragraph text */
+    min-height: 250px;}
+    .tech-card-img {
+    width: 80px;          /* Set a fixed size for the circle */
+    height: 80px;         /* Must be equal to width */
+    border-radius: 50%;   /* Makes it a circle */
+    overflow: hidden;     /* Clips the image to the circle */
+    display: flex;        /* Centers the image inside */
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9; /* Light background for the logo */
+    border: 2px solid #eeeeee; /* Subtle border */
+    margin-bottom: 15px;  /* Space between circle and title */
+}
+.tech-card-img img {
+    width: 70%;           /* Adjust this to size the logo inside the circle */
+    height: auto;
+    object-fit: contain;  /* Ensures the logo isn't stretched */
+}
+.tech_card h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.tech_card p {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+.tech_card:hover {
+    transform: translateY(-10px); /* Lift effect */
+    border-color: #f5edec;
+    border-width: 0.3rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.tech-header{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 5rem;
+}
+.tech_card img{
+    height:40%;
+    width:40%;
+    border-radius: 50%;
+}
+
+
+/* The Loop Math:
+   You have 4 unique cards and 4 duplicates (8 total).
+   To loop seamlessly, we move by exactly the width of the first set (4 cards).
+   4 cards * 250px (card + margins) = 1000px.
+*/
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 4)); } 
+}
+
+/* Optional: Pause on hover so users can read the tech details */
+.tech_slider:hover .slider_track {
+    animation-play-state: paused;
+}
+/* Typing/Writing Effect Base */
+.typewriter-text {
+    display: inline-block;
+    overflow: auto; /* Ensures text is hidden until typed */
+    white-space: nowrap; /* Keeps text on one line */
+    border-right: 4px solid #4285F4; /* The cursor */
+    width: 0;
+    animation: 
+        typing 2s steps(30, end) forwards,
+        blink-caret 0.75s step-end infinite;
+}
+
+/* Different Delays for lines */
+.delay-1 { animation-delay: 2s; }
+.delay-2 { animation-delay: 4s; }
+
+/* Color Highlights */
+.color-pune {
+    color: #34A853; /* Google Green */
+}
+
+.dot.blue { color: #4285F4; font-weight: bold; }
+.dot.red { color: #EA4335; font-weight: bold; }
+
+/* Hero Subtitle and Button Fade-in */
+.hero-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards 5.5s; /* Starts after typing finishes */
+}
+
+.hero-btn {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 6s;
+    background: #4285F4;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+/* Animation Keyframes */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #4285F4; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ================== INTERACTIVE EVENTS CSS ================== */
+/* ================== SIMPLE MOTIVE SECTION ================== */
+.events-simple-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    width: 100%;
+    perspective: 1200px;
+}
+
+.motive-container {
+    width: 75%; /* Fixed width as requested */
+    background-color: #faaea3; /* Neutral, professional red */
+    padding: 60px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.6s ease, 
+                background-color 0.4s ease;
+    
+    will-change: transform;
+}
+
+.motive-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.motive-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0.95;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* GHOST BUTTON STYLE */
+.motive-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Hover State: Fills with White */
+.motive-btn:hover {
+    background-color: white;
+    color: #fde6e5; /* Text takes the red color */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+.motive-container:hover {
+    /* 1. Scale up slightly (1.05) */
+    /* 2. Lift it up (-15px) */
+    /* 3. Tilt it back 2 degrees for perspective */
+    transform: scale(1.05) translateY(-15px) rotateX(2deg);
+    
+    /* Deepen the shadow to simulate distance from the background */
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+    
+    /* Optional: Brighten the red slightly on hover */
+    background-color: #c7fdde; 
+    border-color: #f71e0b;
+    border-width: 0.2rem;
+}
+
+/* Ensure the button stays sharp during the container scale */
+.motive-btn {
+    transition: all 0.3s ease;
+}
+
+.motive-container:hover .motive-btn {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+/* ================== COMMUNITY CARDS ================== */
+.community-section {
+    padding: 100px 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.community-container {
+    display: flex;
+    gap: 50px;
+    width: 85%; /* Keeps it focused in the center */
+    max-width: 1200px;
+}
+
+.community-card {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid #f1f3f4;
+}
+
+/* Image Wrapper for Zoom Effect */
+.comm-image-wrapper {
+    width: 100%;
+    height: 250px;
+    overflow: hidden; /* Clips the zoomed image */
+}
+
+.comm-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.comm-content {
+    padding: 30px;
+    text-align: left;
+    transition: opacity 0.4s ease;
+}
+
+.comm-content h3 {
+    font-size: 1.8rem;
+    color: #202124;
+    margin-bottom: 15px;
+}
+
+.comm-content p {
+    color: #5f6368;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.comm-link {
+    text-decoration: none;
+    color: #4285F4;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+/* ================== HOVER ANIMATIONS ================== */
+
+.community-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Zoom In Image */
+.community-card:hover .comm-image-wrapper img {
+    transform: scale(1.1);
+    filter: brightness(0.8); /* Subtle dimming */
+}
+
+/* Subtle Fade Out for content area background or text */
+.community-card:hover .comm-content {
+    background-color: #bcddf7;
+}
+
+.community-card:hover .comm-link {
+    border-bottom: 2px solid #4285F4;
+}
+/* ================== ANIMATED COMMUNITY BUTTONS ================== */
+.comm-btn {
+    display: inline-block;
+    position:relative;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #4285F4; /* GDG Blue */
+    text-decoration: none;
+    border: 2px solid #4285F4;
+    border-radius: 50px;
+    background-color: transparent;
+    z-index: 1;
+    overflow: hidden;
+    transition: color 0.4s ease, transform 0.3s ease;
+    
+}
+
+/* The Background Fill Layer */
+.comm-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%; /* Start empty */
+    height: 100%;
+    background-color: #4285F4;
+    transition: width 0.4s ease;
+    z-index: -1; /* Stay behind the text */
+}
+
+/* ================== HOVER STATES ================== */
+
+/* 1. Button Hover: Text turns white and button lifts */
+.comm-btn:hover {
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+}
+
+/* 2. Button Hover: Background fills to 100% */
+.comm-btn:hover::before {
+    width: 100%;
+}
+
+/* Card-level interaction: Fade out text slightly to focus on button */
+.community-card:hover .comm-content p {
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+}
+
+/* ================== FOOTER ================== */
+/* ================== MODERN CURVED FOOTER ================== */
+.main-footer {
+    position: relative;
+    background: #000000;
+    color: #ffffff;
+    padding: 80px 10% 40px;
+    border-top-right-radius: 100px; /* The curve from the image */
+    border-top-left-radius: 100px;
+    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+}
+
+/* Social Icons Styling */
+.footer-socials {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    color: #E1341E; /* Pink accent from image */
+    font-size: 1.8rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #ffffff;
+    transform: translateY(-5px);
+}
+
+/* Info Section */
+.footer-info p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.email {
+    color: #ff3399; /* Pink accent */
+    font-weight: 500;
+}
+
+.email i {
+    margin-right: 8px;
+}
+
+/* Terminal Styling */
+.footer-terminal {
+    margin-top: 15px;
+}
+
+.terminal-link {
+    color: #ff3399;
+    text-decoration: underline;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.terminal-cmd {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Hover Effect for Copyright */
+.copyright:hover {
+    color: #4285F4; /* GDG Blue transition */
+    cursor: default;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 40px;
+    }
+
+    .hero-content,
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-image img {
+        width: 320px;
+        height: 320px;
+        margin-top: 40px;
+    }
+}
+/* ================== CALLIGRAPHY LOADING SCREEN ================== */
+/* ================== BRANDED LOADING SCREEN ================== */
+#loader-wrapper {
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+.text-holder {
+  padding: 20px 40px;     /* Adds space around text */
+  display: flex;
+  justify-content: center;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo Animation */
+.logo-box {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 30px;
+}
+
+.main-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    transform: scale(0);
+    animation: logoPop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+               logoPulse 2s infinite ease-in-out 1.2s;
+}
+
+/* The Calligraphy Writing */
+.calligraphy-loader {
+  font-family: cursive;
+  font-size: 4rem;        /* Increased from 3.5rem */
+  font-weight: 700;
+  color: #202124;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  /* Add container for better width calculation */
+  display: inline-block;
+  max-width: 500px;       /* Set explicit max-width for text container */
+  margin: 0 auto;
+  border-right: 4px solid #4285F4;
+  animation: calligraphyWrite 3.2s steps(45) forwards 0.8s, 
+            blink-caret 0.75s step-end infinite 0.8s;
+}
+
+@keyframes calligraphyWrite {
+  from { width: 0; border-right-color: #4285F4; }
+  to { width: 100%; border-right-color: transparent; }
+}
+
+/* Keyframes */
+@keyframes logoPop {
+    to { transform: scale(1); }
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(66, 133, 244, 0)); }
+    50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(66, 133, 244, 0.3)); }
+}
+
+@keyframes calligraphyWrite {
+    from { width: 0; }
+    to { 
+        width: 100%; 
+        border-right-color: transparent; /* Pen disappears at end */
+    }
+}
+
+/* Exit Class */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+/* ================== SPONSOR STYLING REFINEMENT ================== */
+
+.slider-viewport {
+    width: 70%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden; /* This hides the second card */
+    position: relative;
+}
+
+.slider-track {
+    display: flex;
+    width: 200%; /* Important: Must be 100% * number of cards */
+    transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.sponsor-card {
+    width: 50%; /* Each card takes half of the 200% track */
+    flex-shrink: 0;
+    padding: 40px;
+    text-align: center;
+    background: white;
+    border-radius: 30px;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    /* 3D Properties */
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.5s ease, 
+                background-color 0.5s ease;
+}
+
+.sponsor-logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 4px solid #f8f9fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sponsor-logo img {
+    width: 70%;
+    object-fit: contain;
+}
+/* ================== SPONSOR TEXT STYLING ================== */
+
+/* 1. Centered Header Text */
+.sponsors-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+.sponsors-header h1{
+    font-size: 2.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.title-bg {
+    display: inline-block;
+    background: #d9534f; /* Neutral Red */
+    color: #ffffff;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(217, 83, 79, 0.3);
+}
+
+.sponsors-motive {
+    font-size: 1.15rem;
+    color: #5f6368; /* Subtle gray */
+    line-height: 1.8;
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 2. Card Content Styling */
+.sponsor-info p {
+    font-size: 1.2rem;
+    color: #3c4043; /* Darker gray for readability */
+    line-height: 1.6;
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto 30px;
+    font-weight: 400;
+}
+
+/* 3. Owner Information Styling */
+.sponsor-owner h4 {
+    font-size: 1.4rem;
+    color: #202124; /* Google Near-Black */
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.owner-tag {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px; /* Improves professional look */
+    text-align: center;
+}
+
+/* 4. Color Specific Tags */
+.blue-theme .owner-tag {
+    color: #4285F4; /* GDG Blue */
+}
+
+.red-theme .owner-tag {
+    color: #EA4335; /* GDG Red */
+}
+.map-faq-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.split-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* ================== MAP & FAQ STYLING ================== */
+.map-faq-section {
+    width: 100%;
+    height: 100vh; /* Occupies full screen */
+    background: #baf7d3;
+}
+
+.split-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.map-side {
+    flex: 1; /* 50% width */
+}
+
+.faq-side {
+    flex: 1; /* 50% width */
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.faq-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #202124;
+}
+
+.faq-item {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #3c4043;
+}
+
+.faq-answer {
+    max-height: 0; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 20px;
+    color: #5f6368;
+}
+
+/* Active State for JS */
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Expands when active */
+    padding-bottom: 20px;
+}
+
+.faq-item.active .icon {
+    transform: rotate(45deg);
+    color: #ea4335;
+}
+.map-faq-section h1{
+    font-size: 0.9rem;
+    text-align:center;
+}
+.faq-item:hover .faq-answer,
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding-bottom: 20px;
+}
+
+.faq-item:hover .icon {
+  transform: rotate(45deg);
+  color: #ea4335;
+}
+
+
+.hero-image img {
+    transition: opacity 3s ease, transform 3s ease;
+}
+
+.hero-fade {
+    opacity: 0;
+    transform: scale(3);
+}
+.map-head h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #290736;
+  text-align: center;
+}
+/* ================== 3D SPONSOR REFINEMENT ================== */
+.sponsors-section {
+    perspective: 2000px; /* Essential for 3D depth */
+    padding: 100px 0;
+}
+
+.slider-viewport {
+    overflow: visible; /* Allow 3D shadows to bleed out */
+}
+
+/* Hover Effect using your Palette */
+.sponsor-card:hover {
+    
+    transform: scale(1.05) translateZ(50px) rotateX(2deg);
+    box-shadow: 0 30px 60px rgba(226, 224, 204, 0.25);
+    border-radius: 2rem;
+    border-width: 0.3rem;
+    
+}
+
+/* Enhancing the Logo with GDG Blue and Red */
+.sponsor-logo {
+    border: 4px solid #4285F4; /* GDG Blue */
+    background: white;
+    transition: transform 0.5s ease;
+    transform: translateZ(30px); /* Makes logo 'pop' out of card */
+}
+
+.sponsor-card:hover .sponsor-logo {
+    
+    transform: translateZ(60px) scale(1.1);
+}
+
+/* Color Tags for the Owners */
+.sponsor-owner .owner-tag {
+    background: #4285F4;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.sponsor-card:hover .owner-tag {
+    background: #202124; /* Contrast for Yellow background */
+}
+@keyframes textFloat {
+    0% { transform: translateZ(0px); }
+    50% { transform: translateZ(20px); text-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+    100% { transform: translateZ(0px); }
+}
+
+.hero-content h1 {
+    display: inline-block;
+    animation: textFloat 4s ease-in-out infinite;
+}/* ================== REAL CALLIGRAPHY WRITING EFFECT ================== */
+
+.writing-container {
+    width: 100%;
+    text-align: center;
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.writing-svg {
+    width: 80%;
+    max-width: 700px;
+    height: auto;
+}
+
+.calligraphy-text {
+    font-family: 'Yellowtail', cursive;
+    font-size: 5rem;
+    fill: rgba(66, 133, 244, 0); /* Start with 0 opacity fill */
+    stroke: #4285F4; /* GDG Blue */
+    stroke-width: 2;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: fill 0.8s ease-in-out;
+}
+
+/* Class to be added when the user scrolls to the section */
+.animate-writing .calligraphy-text {
+    animation: writeCalligraphy 2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+@keyframes writeCalligraphy {
+    0% {
+        stroke-dashoffset: 1000;
+        fill: rgba(7, 7, 7, 0);
+    }
+    70% {
+        fill: rgba(8, 8, 8, 0); /* Keep it as an outline while drawing */
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: rgba(66, 133, 244, 1); /* Finally fill the color in */
+    }
+}/* ================== PURE CSS RESPONSIVE SYSTEM ================== */
+
+/* 1. Mobile Menu Toggle - Pure CSS (No JS) */
+/* This assumes a checkbox or simply uses media queries to reposition the nav */
+
+@media (max-width: 768px) {
+    #loader-wrapper {
+        display: flex;
+        padding: 20px;
+        background: #ffffff;
+        z-index: 99999; /* Higher than any other element */
+    }
+
+    /* Scale the logo box for mobile */
+    .logo-box {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+    }
+
+    /* Fix the Calligraphy Text scaling */
+    .calligraphy-loader {
+        font-size: 2.2rem; /* Reduced from 4rem for mobile */
+        max-width: 90vw;   /* Limits width to 90% of viewport */
+        white-space: normal; /* Allows wrapping if text is very long */
+        text-align: center;
+        border-right: 3px solid #4285F4;
+        /* Adjust animation for mobile speed */
+        animation: calligraphyWrite 2.5s steps(30) forwards 0.5s;
+    }
+
+    .text-holder {
+        padding: 10px;
+        width: 100%;
+    }
+    /* Navbar Adjustment */
+    .navbar {
+        padding: 15px 20px;
+        flex-wrap: wrap; /* Allows nav to wrap to next line */
+    }
+
+    /* Transform Nav into a Dropdown */
+    nav {
+        display: none; /* Hidden by default on mobile */
+        order: 3;      /* Moves it below the Logo */
+        width: 100%;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.95);
+        margin: 15px 0 0 0;
+        padding: 10px 0;
+        border-top: 1px solid #eee;
+        border-radius: 15px;
+    }
+
+    /* Display nav when hovering over the navbar (Pure CSS trigger) */
+    .navbar:hover nav {
+        display: flex;
+    }
+
+    nav a {
+        width: 100%;
+        margin: 5px 0 !important;
+        text-align: center;
+    }
+
+    /* Hero Section Responsiveness */
+    .hero {
+        flex-direction: column-reverse; /* Image moves above text */
+        padding: 20px;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero-content {
+        min-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2rem !important; /* Scale down heading */
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .hero-image img {
+        width: 250px !important;
+        height: 250px !important;
+    }
+
+    /* Vision & Mission Cards */
+    .vm-wrapper {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+        margin: 20px auto;
+    }
+
+    .vm-card {
+        flex: 0 0 100% !important;
+        width: 100%;
+        filter: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Community Section */
+    .community-container {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    /* Map & FAQ Split Section */
+    .split-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .map-side, .faq-side {
+        width: 100%;
+        height: 350px;
+        flex: none;
+    }
+
+    .faq-side {
+        padding: 20px;
+        height: auto;
+    }
+
+    /* Simple Motive Container */
+    .motive-container {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+/* 2. Extra Small Devices (Phones) */
+@media (max-width: 480px) {
+    .calligraphy-loader {
+        font-size: 2.5rem;
+    }
+
+    .footer-container {
+        padding: 0 20px;
+    }
+    
+    .main-footer {
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+    }
+    .hero-title {
+        font-size: 1.8rem !important;
+    }
+
+    .hero-image img {
+        width: 250px !important;
+        height: 250px !important;
+    }
+
+    .calligraphy-loader {
+        font-size: 1.6rem; /* Even smaller for tiny screens */
+    }
+}

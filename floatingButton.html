@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Event Page</title>
+    
+    <style>
+        /* 1. The Floating Button */
+        #floating-snippet-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 25px;
+            background-color: #61afef;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            display: none; /* Controlled by JS */
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        #floating-snippet-btn:hover { transform: scale(1.1); }
+
+        /* 2. The Main Focus Overlay (The "New Page" feel) */
+        #snippet-overlay {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1e2127; /* Dark background */
+            z-index: 10000; /* Higher than floating button */
+            overflow-y: auto;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #e06c75;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 3. Snippet Styling (Your original style) */
+        .code-container {
+            background-color: #282c34;
+            border-radius: 8px;
+            color: #abb2bf;
+            font-family: monospace;
+            margin: 20px;
+            width: 90%;
+            max-width: 600px;
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #21252b;
+        }
+
+        .copy-btn {
+            background: #4b5263;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        pre { padding: 15px; margin: 0; overflow-x: auto; }
+    </style>
+</head>
+<body>
+
+    <div id="main-site-content">
+        <h1>Welcome to the Main Website</h1>
+        <p>This is where your normal hackathon content lives.</p>
+    </div>
+
+    <button id="floating-snippet-btn" onclick="toggleSnippets(true)">
+        <span>💻</span> View Snippets
+    </button>
+
+    <div id="snippet-overlay">
+        <button class="close-btn" onclick="toggleSnippets(false)">Close & Return</button>
+        <h1 style="color: white;">Event Resources</h1>
+
+        <div class="code-container">
+            <div class="code-header">
+                <span>JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><code>function hack() { console.log("Code Here"); }</code></pre>
+        </div>
+    </div>
+
+    <script>
+        // 1. Admin Control
+        const eventIsActive = true; 
+
+        // 2. Show/Hide floating button based on status
+        function checkEventStatus() {
+            const btn = document.getElementById('floating-snippet-btn');
+            btn.style.display = eventIsActive ? "flex" : "none";
+        }
+
+        // 3. The Toggle Function (Fixes your click error)
+        function toggleSnippets(show) {
+            const overlay = document.getElementById('snippet-overlay');
+            const mainContent = document.getElementById('main-site-content');
+            
+            if (show) {
+                overlay.style.display = 'flex';
+                mainContent.style.display = 'none'; // Hides the main website
+            } else {
+                overlay.style.display = 'none';
+                mainContent.style.display = 'block'; // Shows website back
+            }
+        }
+
+        // 4. Copy Logic
+        function copyCode(button) {
+            const code = button.parentElement.nextElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerText = "Copied!";
+                setTimeout(() => { button.innerText = "Copy"; }, 2000);
+            });
+        }
+
+        window.onload = checkEventStatus;
+    </script>
+</body>
+</html>

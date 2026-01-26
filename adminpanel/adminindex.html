@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDG Event Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="admin-panel">
+        <h2>GDG Admin Dashboard</h2>
+        <form id="eventForm">
+            <div class="form-grid">
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Tech Talk">Tech Talk</option>
+                    <option value="Hackathon">Hackathon</option>
+                </select>
+                <input type="text" id="title" placeholder="Event Title" required>
+                
+                <div class="date-row">
+                    <input type="number" id="day" placeholder="DD" min="1" max="31" required>
+                    <input type="text" id="month" placeholder="Month (e.g. Jan)" required>
+                    <input type="number" id="year" placeholder="YYYY" required>
+                </div>
+
+                <input type="text" id="time" placeholder="Time (e.g. 10:00 AM - 1:00 PM)" required>
+                <input type="text" id="location" placeholder="Location (Online or Venue)" required>
+                <input type="url" id="regLink" placeholder="Registration Link" required>
+                
+                <textarea id="description" placeholder="Short Event Description" required></textarea>
+
+                <div class="upload-area">
+                    <label for="imageUpload">Upload Images</label>
+                    <input type="file" id="imageUpload" multiple accept="image/*">
+                    <div id="imagePreview" class="preview-grid"></div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="draftBtn" class="btn-secondary">Save as Draft</button>
+                <button type="submit" class="btn-primary">Publish Event</button>
+            </div>
+        </form>
+    </section>
+
+    <hr>
+
+    <section class="user-view">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div id="eventsContainer" class="events-grid">
+            </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

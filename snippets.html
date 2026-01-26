@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample HTML Document</title>
+     <link rel="stylesheet" href="css/codeSnnipet.css">
+</head>
+<body>
+    <div id="code-container"></div>
+    <div id="main-container"></div>
+
+    <script>
+        const API_URL='http://localhost:5501/api/v1/snippets';
+        // Wrapped in an async function to allow 'await'
+       async function fetchSnippets() {
+            try {
+                const res = await fetch(API_URL);
+                const snippets = await res.json(); // This is your array
+                const container = document.getElementById("code-container");
+
+                // Check if the collection is empty
+                    if (!snippets || snippets.length === 0) {
+                        container.innerHTML = "<div style='color: black; text-align: center;'>No code snippets available at the moment.</div>";                        return;
+                    }
+
+                // Using map to generate the HTML for each item in the array
+                container.innerHTML = snippets.map(item => `
+                <div class="code-snippet">
+                    <div class="code-header">
+                        <span class="language-label">${item.title}</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre><code>${item.code}</code></pre>
+                 </div> 
+                   `).join(''); 
+
+                } catch (err) {
+                    console.error('Error:', err);
+                }
+            }
+
+    fetchSnippets();
+
+        function copyCode(button) {
+            // Updated selector to find the code accurately
+            const code = button.parentElement.nextElementSibling.innerText;
+
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerText = "Copied!";
+                button.style.backgroundColor = "#98c379";
+
+                setTimeout(() => {
+                    button.innerText = "Copy";
+                    button.style.backgroundColor = "#4b5263";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

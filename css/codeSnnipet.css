@@ -1,0 +1,43 @@
+ body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Now it works because of display: flex */
+            background-color: #f0f2f5;
+            font-family: sans-serif;
+        }
+        #code-container {
+            border-radius: 8px;
+            color: #abb2bf;
+            font-family: 'Poppins', sans-serif;
+            margin: 20px 0;
+            width: 800px;
+            overflow: hidden;
+            position: relative;
+        }
+        .code-snippet {
+            margin-bottom: 16px;
+            border: 1px solid #3a3f4b;
+            border-radius: 8px;
+            overflow: hidden;
+                        background-color: #21252b;
+
+        }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #21252b;
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+        .copy-btn {
+            background: #4b5263;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            padding: 4px 8px;
+            transition: background 0.3s;
+        }
+        .copy-btn:hover { background: #61afef; }
+        pre { padding: 16px; margin: 0; overflow-x: auto; }

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GDG SKNCOE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/style1.css">
+        <link rel="stylesheet" href="css/currentEvent.css">
+            <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;800&family=Space+Grotesk:wght@500;700&family=Dancing+Script:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- <div id="loader-wrapper">
+    <div class="loader-content">
+        <div class="logo-box">
+            <img src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-goog/chapter_banners/GDG%20Cloud%20Boston_%20Logo%20Square%20(1).png" 
+                 alt="GDG Logo" class="main-logo">
+            <div class="logo-border"></div>
+        </div>
+        <div class="text-holder">
+            <h1 class="calligraphy-loader">GDG SKNCOE</h1>
+        </div>
+    </div>
+</div>  -->
+
+<!-- <div class="area">
+    <ul class="circles">
+        <li class="red"></li><li class="blue"></li>
+        <li class="red"></li><li class="blue"></li>
+        <li class="red"></li><li class="blue"></li>
+        <li class="red"></li><li class="blue"></li>
+        <li class="red"></li><li class="blue"></li>
+    </ul>
+</div> -->
+
+<header class="navbar" style="position: fixed; z-index: 999; width: 100%; height: fit-content;">
+    <div class="logo">
+        <img src="assets/logo.png" alt="gdg logo">
+        </div>
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="Event.html">Events</a>
+        <a href="team.html">Members</a>
+        <a href="snippets.html">Code Snippets</a>
+    </nav>
+    <div class="nav-socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1 class="hero-title">Google Developers Group<br>On Campus<br>SKNCOE Pune</h1>
+        <p class="hero-subtitle">Learn · Connect · Grow</p>
+        <button class="hero-btn">Join Community</button>
+    </div>
+    <!-- <div class="hero-image">
+        <img id="heroImg" src="assets/hero.jpg" alt="GDG Hero">
+    </div> -->
+</section>
+
+<section class="about_us" id="about">
+    
+      <div class="section_container">
+        <div class="about_container">
+          <div class="text_section">
+            <h2 class="section_title">Who We Are</h2>
+            <p>
+            GDG SKNCOE is a student-led tech community focused on learning, innovation, 
+            and collaboration. We bring together developers and tech enthusiasts to explore 
+            Google technologies, enhance practical skills, and build solutions that create 
+            real-world impact.
+            </p>
+          </div>
+
+          <div class="image_section">
+            <img src="assets/grp.jpg" >
+          </div>
+        </div>
+      </div>
+    </section>
+ <section class="vision-mission" id="vision-mission">
+    <div class="vm-header">
+        <h2>Our Core Purpose</h2>
+        <p>Driving innovation and fostering a community of lifelong learners.</p>
+    </div>
+    
+    <div class="vm-wrapper">
+        <div class="vm-card vision-card reveal-left">
+        <div class="vm-card vision-card">
+            <div class="vm-icon"><i class="fas fa-eye"></i></div>
+            <h3>Vision</h3>
+            <p>To build a vibrant tech-driven community that inspires innovation, learning, and collaboration among future developers.
+We aim to empower students to create impactful solutions using Google technologies and beyond.</p>
+        </div></div>
+        <div class="vm-card mission-card reveal-right">
+        <div class="vm-card mission-card">
+            <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>Mission</h3>
+            <p>To provide hands-on learning, knowledge sharing, and real-world exposure through workshops, events, and peer collaboration.
+We strive to bridge the gap between academics and industry by nurturing practical skills and a growth mindset.</p>
+        </div></div>
+        <div class="vm-card values-card reveal-left">
+        <div class="vm-card values-card">
+            <div class="vm-icon"><i class="fas fa-gem"></i></div>
+            <h3>Values</h3>
+            <p>We believe in inclusivity, curiosity, collaboration, and continuous learning.
+Our community grows through sharing knowledge, ethical innovation, and supporting each other’s success.</p>
+        </div></div>
+    </div>
+</section>
+<section class="currentEvents">
+    <div class="currentEvents-header">
+        <h1 class="currentEvents-title">Upcoming Events</h1>
+        <p class="currentEvents-subtitle">Join to new upcoming events</p>
+    </div>
+    <div id="current-timeline"></div>
+</section>
+
+<section class="tech_slider">
+    <h1 class="tech-header">Tech where we work</h1>
+  <div class="slider_track">
+    <div class="tech_card">
+      <img src="assets/android.jpg" alt="Android">
+      <h3>Android</h3>
+      <p>Creating smart, scalable mobile apps that deliver seamless experiences on Android devices.</p>
+    </div>
+    <div class="tech_card">
+      <img src="assets/cloud.jpg" alt="Google Cloud">
+      <h3>Cloud</h3>
+      <p>Enabling secure, scalable, and on-demand computing resources over the internet.</p>
+    </div>
+    <div class="tech_card">
+      <div class="tech-card-img"><img src="assets/aiml.png" alt="Machine Learning"></div>
+      <h3>AI/ML</h3>
+      <p>Empowering machines to learn, predict, and make intelligent decisions from data.</p>
+    </div>
+    <div class="tech_card">
+      <img src="assets/cyber.avif" alt="Machine Learning">
+      <h3>Cyber Security</h3>
+      <p>Protecting systems, networks, and data from digital threats and cyber attacks.</p>
+    </div>
+    <div class="tech_card">
+      <img src="assets/web.jpg" alt="Web Tech">
+      <h3>Web</h3>
+      <p>Building responsive, user-friendly websites and web applications that power the digital world.</p>
+    </div>
+   <div class="tech_card">
+      <img src="assets/android.jpg" alt="Android">
+      <h3>Android</h3>
+      <p>Creating smart, scalable mobile apps that deliver seamless experiences on Android devices.</p>
+    </div>
+    <div class="tech_card">
+      <img src="assets/cloud.jpg" alt="Google Cloud">
+      <h3>Cloud</h3>
+      <p>Enabling secure, scalable, and on-demand computing resources over the internet.</p>
+    </div>
+    <div class="tech_card">
+      <img src="assets/aiml.png" alt="Machine Learning">
+      <h3>AI/ML</h3>
+      <p>Empowering machines to learn, predict, and make intelligent decisions from data.</p>
+    </div>
+    <div class="tech_card">
+      <img src="assets/cyber.avif" alt="Machine Learning">
+      <h3>Cyber Security</h3>
+      <p>Protecting systems, networks, and data from digital threats and cyber attacks.</p>
+    </div>
+    <div class="tech_card">
+      <img src="assets/web.jpg" alt="Web Tech">
+      <h3>Web</h3>
+      <p>Building responsive, user-friendly websites and web applications that power the digital world.</p>
+    </div>
+    <!-- <div class="tech_card"> <img src="ml_logo.png" alt="ML"> <h3>ML/AI</h3><p></p> </div>
+    <div class="tech_card"> <img src="web_logo.png" alt="Web"> <h3>Web</h3><p></p> </div> -->
+  </div>
+</section>
+
+<section class="community-section" id="community">
+    <div class="comm-header">
+        <h2>Meet Our Sponsors</h2>
+        <p style="font-weight: 700; font-size: 1.2rem;">Our mission at GDG SKNCOE is fueled by the generous support of our industry partners.</p>
+    </div>
+
+    <div class="community-container">
+        <a href="https://sponsor1-link.com" target="_blank" class="community-card">
+            <div class="comm-image-wrapper">
+                <img src="assets/logo1.jpg" alt="velocity">
+            </div>
+        </a>
+
+        <a href="https://www.bing.com/ck/a?!&&p=37b3151f322a19c9f9ebc5ebcb9fc5b6edb7d323bd41bee899b3a1e56c27af3dJmltdHM9MTc2ODYwODAwMA&ptn=3&ver=2&hsh=4&fclid=2b52861b-a2de-6348-0a0e-9203a34562c7&psq=solithix+pune&u=a1aHR0cHM6Ly9zb2xpdGhpeC5jb20v" target="_blank" class="community-card">
+            <div class="comm-image-wrapper">
+                <img src="assets/logo2.jpg" alt="Solithix">
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- <section class="sponsors-section" id="sponsors">
+    <div class="sponsors-header">
+        <h1>Meet Our Sponsors</h1>
+        <p class="sponsors-motive">Our mission at GDG SKNCOE is fueled by the generous support of our industry partners. Through these collaborations, we provide students with premium resources, mentorship, and infrastructure.</p>
+    </div>
+    <div class="slider-container">
+        <div class="slider-track" id="sliderTrack">
+            <div class="sponsor-card">
+                <div class="sponsor-logo"><img src="assets/gallery1.jpeg" alt="Sponsor Logo"></div>
+                <div class="sponsor-info">
+                    <p>Solithix Studio</p>
+                    <p>Solithix Studios builds fast, accessible, conversion-focused websites and apps.</p>
+                </div>
+                <div class="sponsor-owner"><h4>Vighnesh Bangar</h4><span>Owner, Solithix Studio</span></div>
+            </div>
+            <div class="sponsor-card">
+                <div class="sponsor-logo"><img src="assets/gallary2.jpeg" alt="Sponsor Logo"></div>
+                <div class="sponsor-info">
+                    <p>Velocity Classes</p>
+                    <p>Velocity Pune is a premier IT training institute dedicated to empowering individuals.</p>
+                </div>
+                <div class="sponsor-owner"><h4>Vijaykumar Kulkarni</h4><span>Founder, Velocity Classes</span></div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<div class="map-head">
+    <div class="writing-container">
+        <svg viewBox="0 0 800 120" class="writing-svg">
+            <text x="50%" y="50%" text-anchor="middle" class="calligraphy-text">Connect With Us</text>
+        </svg>
+    </div>
+</div>
+
+<section class="map-faq-section" id="location">
+    <div class="split-container">
+        <div class="map-side">
+            <h1 style="font-size: 1.6rem;margin-bottom: 25px;">Where we are Located</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4419076016625!2d73.8336332752033!3d18.463624582619476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc29550e58f01eb%3A0x6960d1396152a129!2sSmt.%20Kashibai%20Navale%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="faq-side">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <button class="faq-question">Who can join GDG SKNCOE? <span class="icon">+</span></button>
+                    <div class="faq-answer"><p>Any student from SKNCOE, regardless of their branch or year, is welcome to join.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Where is the campus located? <span class="icon">+</span></button>
+                    <div class="faq-answer"><p>Survey No. 44/1, Sinhgad Institute Rd, Vadgaon Budruk, Pune.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Are the events free? <span class="icon">+</span></button>
+                    <div class="faq-answer"><p>Yes! Most of our workshops and speaker sessions are completely free.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How to reach? <span class="icon">+</span></button>
+                    <div class="faq-answer"><p>You can reach via local PMPML buses or by 20-minute drive from Swargate.</p></div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</section>
+<button id="floating-snippet-btn" onclick="toggleSnippets(true)">
+    <span>💻</span> View Snippets
+</button>
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section footer-brand">
+            <div class="footer-logo">
+                
+                <span><img src="assets/logo.png"></span>
+                <span><h1>On Campus    </h1><h2>   <ul >---Smt.Kashibai Navle College of Engineering</ul></h2></span>
+            </div>
+        </div>
+
+        <div class="footer-section footer-info">
+            <p>&copy; 2024 All Rights Reserved</p>
+            
+            <a href="mailto:contact@gdgskncoe.com" class="footer-mail">contact@gdgskncoe.com</a>
+        </div>
+
+        <div class="nav-socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>GDG-On Campus operates from Smt. Kashibai Navale College of Engineering, Pune, India.
+<br>
+ Did you see our Terminal?</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

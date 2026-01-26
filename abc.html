@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDG Admin - Team & Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gdg-blue: #4285F4;
+            --gdg-red: #EA4335;
+            --gdg-yellow: #FBBC04;
+            --sidebar-width: 260px;
+        }
+
+        body { font-family: 'Inter', sans-serif; background: #f8f9fa; margin: 0; display: flex; }
+
+        /* Sidebar Navigation */
+        .sidebar { width: var(--sidebar-width); background: #fff; height: 100vh; border-right: 1px solid #dadce0; padding: 25px; position: fixed; }
+        .logo { font-weight: 800; color: var(--gdg-blue); margin-bottom: 40px; font-size: 1.2rem; }
+        .nav-item { padding: 12px 15px; margin: 8px 0; cursor: pointer; border-radius: 8px; font-weight: 600; color: #5f6368; display: flex; align-items: center; gap: 12px; transition: 0.3s; }
+        .nav-item.active { background: #e8f0fe; color: var(--gdg-blue); }
+
+        /* Content Area */
+        .content { flex: 1; margin-left: var(--sidebar-width); padding: 40px; }
+        .admin-section { display: none; }
+        .admin-section.active { display: block; }
+
+        /* Team Form UI (Matching your Screenshot) */
+        .card { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #dadce0; max-width: 650px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .section-header { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: #202124; }
+        
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; color: #202124; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #dadce0; border-radius: 6px; box-sizing: border-box; font-family: inherit; font-size: 0.95rem; }
+        
+        /* Social Input Styling */
+        .social-input { display: flex; align-items: center; gap: 0; border: 1px solid #dadce0; border-radius: 6px; overflow: hidden; }
+        .social-icon { background: #f1f3f4; padding: 10px; width: 45px; display: flex; justify-content: center; color: #5f6368; border-right: 1px solid #dadce0; }
+        .social-input input { border: none; border-radius: 0; }
+
+        .btn-blue { background: var(--gdg-blue); color: white; padding: 12px; border-radius: 6px; border: none; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; }
+
+        /* Member List Table Below Form */
+        .table-container { margin-top: 40px; background: white; border-radius: 12px; border: 1px solid #dadce0; overflow: hidden; max-width: 900px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { padding: 15px; background: #f8f9fa; border-bottom: 2px solid #eee; font-size: 0.85rem; text-transform: uppercase; color: #70757a; }
+        td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .delete-btn { color: var(--gdg-red); cursor: pointer; border: none; background: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<nav class="sidebar">
+    <div class="logo">< > GDG SKNCOE</div>
+    <div class="nav-item active" onclick="showSection('team-section', this)">
+        <i class="fas fa-users"></i> Team Members
+    </div>
+    <div class="nav-item" onclick="showSection('snippet-section', this)">
+        <i class="fas fa-code"></i> Code Snippets
+    </div>
+    <div class="nav-item" onclick="showSection('event-section', this)">
+        <i class="fas fa-calendar-alt"></i> Events
+    </div>
+</nav>
+
+<main class="content">
+    
+    <div id="team-section" class="admin-section active">
+        <h1 style="margin-bottom: 30px;">Team Management</h1>
+        
+        <div class="card">
+            <div class="section-header">
+                <i class="fas fa-user-plus" style="color: var(--gdg-green);"></i> Add Member
+            </div>
+            <form id="teamForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="memName" placeholder="e.g. Sudeep" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tier / Position</label>
+                    <select id="memTier">
+                        <option value="Organizer">Organizer</option>
+                        <option value="Domain Lead">Domain Lead</option>
+                        <option value="Domain Co-Lead">Domain Co-Lead</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>LinkedIn Profile URL</label>
+                    <div class="social-input">
+                        <div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <input type="url" id="memLinkedin" placeholder="https://linkedin.com/in/username">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>GitHub Profile URL</label>
+                    <div class="social-input">
+                        <div class="social-icon"><i class="fab fa-github"></i></div>
+                        <input type="url" id="memGithub" placeholder="https://github.com/username">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Profile Image</label>
+                    <input type="file" id="memImage" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn-blue">Add Member to Row</button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Tier</th>
+                        <th>Links</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="memberTableBody">
+                    <tr>
+                        <td colspan="4" style="text-align:center;">Loading team members...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </main>
+
+<script>
+    // --- NAVIGATION LOGIC ---
+    function showSection(sectionId, element) {
+        document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+        element.classList.add('active');
+        
+        if(sectionId === 'team-section') loadMembers();
+    }
+
+    // --- TEAM API LOGIC (Connect to your backend) ---
+    const TEAM_API = 'http://localhost:5501/api/v1/team'; // Update to your team API endpoint
+
+    async function loadMembers() {
+        const tableBody = document.getElementById('memberTableBody');
+        try {
+            const res = await fetch(TEAM_API);
+            const data = await res.json();
+            
+            if(data.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No members found.</td></tr>';
+                return;
+            }
+
+            tableBody.innerHTML = data.map(m => `
+                <tr>
+                    <td><strong>${m.name}</strong></td>
+                    <td>${m.tier}</td>
+                    <td>
+                        <i class="fab fa-linkedin" style="color:#0077b5"></i>
+                        <i class="fab fa-github" style="margin-left:10px"></i>
+                    </td>
+                    <td><button class="delete-btn" onclick="deleteMember('${m._id}')">Delete</button></td>
+                </tr>
+            `).join('');
+        } catch (err) {
+            tableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:red;">Error connecting to Team API.</td></tr>';
+        }
+    }
+
+    // Form Submit for Team
+    document.getElementById('teamForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const memberData = {
+            name: document.getElementById('memName').value,
+            tier: document.getElementById('memTier').value,
+            linkedin: document.getElementById('memLinkedin').value,
+            github: document.getElementById('memGithub').value
+        };
+
+        try {
+            const res = await fetch(TEAM_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(memberData)
+            });
+            if(res.ok) {
+                alert("Member Added Successfully!");
+                document.getElementById('teamForm').reset();
+                loadMembers();
+            }
+        } catch (err) {
+            alert("Failed to add member.");
+        }
+    });
+
+    async function deleteMember(id) {
+        if (!confirm("Delete this member?")) return;
+        try {
+            const res = await fetch(`${TEAM_API}/${id}`, { method: 'DELETE' });
+            if (res.ok) loadMembers();
+        } catch (err) { console.error(err); }
+    }
+
+    // Initialize View
+    loadMembers();
+</script>
+</body>
+</html>
