@@ -41,3 +41,55 @@ input, select, textarea { width: 100%; padding: 10px; border: 1px solid #dadce0;
 table { width: 100%; border-collapse: collapse; text-align: left; }
 th { padding: 15px; background: #f8f9fa; border-bottom: 2px solid #eee; font-size: 0.85rem; text-transform: uppercase; color: #70757a; }
 td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+
+.team-grid-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.domain-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #dadce0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.domain-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.domain-info {
+    padding: 15px;
+}
+
+.domain-info h3 {
+    margin: 0;
+    color: var(--gdg-blue);
+    font-size: 1.2rem;
+}
+
+.domain-info p {
+    font-size: 0.85rem;
+    color: #5f6368;
+    margin: 5px 0 10px 0;
+}
+
+.member-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.member-tag {
+    background: #e8f0fe;
+    color: #1967d2;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}

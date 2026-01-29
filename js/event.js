@@ -97,9 +97,8 @@ EventsDetail.forEach(yearObj => {
       <h4>${event.Date}</h4>
       <p>${event.Point}</p>
     `;
-
     eventSection.appendChild(eventInfo);
-
+  console.log(event.photos);
     /* RIGHT SIDE (SLIDER) — ONLY IF PHOTOS EXIST */
     if (event.photos && event.photos.length > 0) {
       const slider = document.createElement("div");
